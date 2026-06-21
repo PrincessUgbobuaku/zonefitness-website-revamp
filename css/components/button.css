@@ -1,49 +1,40 @@
-
-
 .wp-block-button__link {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-width: 240px;
-    padding: 18px 40px;
-
-    background: #1fce6d;
-    color: #fff;
-
-    overflow: hidden;
-
-    transition:
-        min-width 0.15s ease-in-out,
-        padding 0.15s ease-in-out,
-        background-color 0.15s ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 190px;
+  padding: 18px 40px;
+  background: #1fce6d;
+  color: #fff;
+  overflow: hidden;
+  transition:
+    min-width 0.3s ease-in-out,
+    padding 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
 }
 
 /* Button expands */
 .wp-block-button__link:hover {
-    min-width: 280px; /* Increase width */
-    background-color: #18b85f;
+  min-width: 230px; /* Increase width */
+  background-color: #18b85f;
 }
 
 /* Arrow */
 .wp-block-button__link::after {
-    content: "";
-    position: absolute;
-    right: 20px;
-    width: 18px;
-    height: 18px;
-
-    background: url("http://zonefitness.local/wp-content/uploads/2026/06/arrow-left-02.png")
-        center / contain no-repeat;
-
-    opacity: 0;
-    transform: translateX(-10px);
-
-    transition: all 0.15s ease-in-out;
+  content: "";
+  position: absolute;
+  right: 30px;
+  width: 24px;
+  height: 24px;
+  background: url("http://zonefitness.local/wp-content/uploads/2026/06/arrow-left-02.png")
+    center / contain no-repeat;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.15s ease-in-out;
 }
 
 .wp-block-button__link:hover::after {
-    opacity: 1;
-    transform: translateX(0);
+  opacity: 1;
+  transform: translateX(0);
 }

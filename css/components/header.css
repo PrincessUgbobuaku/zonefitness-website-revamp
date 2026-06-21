@@ -1,49 +1,13 @@
-.main-navigation .main-nav ul li a {
-  padding: 10px 0;
-}
-
-.main-navigation .menu > li:first-child {
-  padding: 20px 0;
-}
-
-/* .main-navigation .main-nav {
-  padding: 20px 0;
-} */
-
-.site-header {
-  position: fixed !important;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-    /* position: sticky !important;
-    top: 0;
-    z-index: 1000; */
-}
-
-.site-header .inside-header {
-  padding: 0px 40px;
-  position: relative;
-  background: transparent;
-  border-radius: 50px;
-  top: 20px;
-}
-
 .site-header .inside-header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(54, 54, 54, 0.66);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(54, 54, 54, 0.66);
   backdrop-filter: blur(10px);
-    border-radius: 50px;
-    z-index: -1;
+  border-radius: 50px;
+  z-index: -1;
 }
 
-.main-navigation .main-nav ul li a {
-  line-height: unset !important;
-  /* padding: 28px 0; */
-}
-
-/* the underline */
 #menu-main-menu li a::after {
   content: "";
   position: absolute;
@@ -64,11 +28,80 @@
 
 .menu-item.menu-item-type-taxonomy a {
   font-weight: 700;
-  
+  font-size: 16px !important;
 }
 
+@media (min-width: 769px) {
+
+.main-navigation .main-nav ul li a {
+  padding: 10px 0;
+}
+
+.main-navigation .menu > li:first-child {
+  padding: 20px 0;
+}
+
+.site-header {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.site-header .inside-header {
+  padding: 0px 40px;
+  position: relative;
+  background: transparent;
+  border-radius: 50px;
+  top: 20px;
+}
+
+/* .site-header .inside-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(54, 54, 54, 0.66);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  z-index: -1;
+} */
+
+.main-navigation .main-nav ul li a {
+  line-height: unset !important;
+  /* padding: 28px 0; */
+}
+
+/* the underline */
+
+#menu-main-menu li a {
+  position: relative;
+  width: fit-content;
+}
+
+/* #menu-main-menu li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1fce6d; 
+  transform: scaleX(0);
+  transform-origin: center; 
+  transition: transform 0.3s ease;
+}
+
+#menu-main-menu li a:hover::after {
+  transform: scaleX(1);
+}
+
+.menu-item.menu-item-type-taxonomy a {
+  font-weight: 700;
+  font-size: 16px !important;
+} */
+
 .menu-item.menu-item-type-taxonomy {
-  grid-column: 1/span 3;
+  grid-column: 1 / span 3;
 }
 
 .main-navigation ul ul.sub-menu {
@@ -80,29 +113,32 @@
 .main-navigation ul ul.sub-menu {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 500px;
-
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-32.9%) translateY(-10px);
-
   min-width: 1230px;
   padding: 0px 40px;
-
   background: rgba(54, 54, 54, 0.66);
   backdrop-filter: blur(10px);
-
   border-radius: 50px;
-
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
   transition:
     opacity 0.35s ease,
     transform 0.35s ease,
     border-radius 0.35s ease,
     visibility 0.35s ease;
+}
+
+.main-navigation ul ul li {
+  display: flex;
+  align-items: center;
+}
+
+.menu-image a {
+  width: 100% !important;
 }
 
 .site-header .inside-header::before {
@@ -122,31 +158,33 @@
 }
 
 .menu-image {
-    grid-column: 4;
-    grid-row: 1 / 11;
+  grid-column: 4;
+  grid-row: 1 / 11;
 }
 
 .menu-image a {
-    display: block;
-    height: 100%;
-    min-height: 500px;
-    color: transparent !important;
-    background: url('http://zonefitness.local/wp-content/uploads/2026/06/man-lifting-weights-removebg-preview.png')
-                top/cover no-repeat;
+  display: block;
+  height: 100%;
+  min-height: 500px;
+  color: transparent !important;
+  background: url("http://zonefitness.local/wp-content/uploads/2026/06/man-lifting-weights-removebg-preview.png")
+    top/cover no-repeat;
 }
 
-/* .inside-header:has(.main-navigation li:hover > ul) {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-} */
-
 .inside-header:has(.main-navigation li:hover > ul)::before {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .inside-header:has(.main-navigation li:hover > ul)
-.main-navigation ul ul.sub-menu {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+  .main-navigation
+  ul
+  ul.sub-menu {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.main-navigation:not(.mobile-menu-control-wrapper) .gp-icon.icon-search {
+display: flex !important;
+}
 }
