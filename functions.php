@@ -22,3 +22,14 @@ add_action('wp_enqueue_scripts', 'zonefitness_enqueue_styles');
 
 require get_stylesheet_directory() . '/inc/post-types/club.php'; 
 require get_stylesheet_directory() . '/inc/taxonomies/region.php';
+
+/**
+ * Change mobile menu breakpoint to 1000px
+ */
+add_filter( 'generate_mobile_menu_media_query', function() {
+    return '(max-width: 1050px)';
+} );
+
+add_filter( 'generate_not_mobile_menu_media_query', function() {
+    return '(min-width: 1051px)';
+} );
