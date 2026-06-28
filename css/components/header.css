@@ -5,7 +5,15 @@
   background: rgba(54, 54, 54, 0.66);
   backdrop-filter: blur(10px);
   border-radius: 50px;
+  transition: border-radius 0.35s ease;
   z-index: -1;
+}
+
+/*if 'Zone Fitness Clubs' is hovered (thereby showing the sub-menu), then change inside-headers border-radii to 0px*/
+
+.inside-header:has(.main-navigation li:hover > ul)::before {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .site-header {
@@ -16,6 +24,12 @@
   top: 20px;
 }
 
+#menu-main-menu li a {
+  position: relative;
+  width: fit-content;
+}
+
+/*Adding underline to list items*/
 #menu-main-menu li a::after {
   content: "";
   position: absolute;
@@ -29,7 +43,7 @@
   transition: transform 0.3s ease;
 }
 
-/* hover state */
+/*hover state for underline*/
 #menu-main-menu li a:hover::after {
   transform: scaleX(1);
 }
@@ -53,41 +67,23 @@
     position: relative;
     background: transparent;
     border-radius: 50px;
-    /* top: 20px; */
   }
-
-  /* .site-header .inside-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(54, 54, 54, 0.66);
-  backdrop-filter: blur(10px);
-  border-radius: 50px;
-  z-index: -1;
-} */
 
   .main-navigation .main-nav ul li a {
     line-height: unset !important;
-    /* padding: 28px 0; */
-  }
-
-  /* the underline */
-
-  #menu-main-menu li a {
-    position: relative;
-    width: fit-content;
   }
 
   .menu-item.menu-item-type-taxonomy {
     grid-column: 1 / span 3;
   }
 
-  .main-navigation ul ul.sub-menu {
+  /* .main-navigation ul ul.sub-menu {
     left: auto !important;
     height: auto !important;
     overflow: visible !important;
-  }
+  } */
 
+  /*drop down menu*/
   .main-navigation ul ul.sub-menu {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 500px;
@@ -110,6 +106,17 @@
       visibility 0.35s ease;
   }
 
+  /*when 'Zone Fitness Clubs' item is hovered, change sub-menu border-raii*/
+  .main-navigation li:hover > ul.sub-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-32.9%) translateY(0); /* moved drop down from its orginal position*/
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 0px 40px 15px;
+  }
+
   .main-navigation ul ul li {
     display: flex;
     align-items: center;
@@ -117,22 +124,6 @@
 
   .menu-image a {
     width: 100% !important;
-  }
-
-  .site-header .inside-header::before {
-    transition: border-radius 0.35s ease;
-  }
-
-  .main-navigation li:hover > ul.sub-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-
-    transform: translateX(-32.9%) translateY(0);
-
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    padding: 0px 40px 15px;
   }
 
   .menu-image {
@@ -149,19 +140,6 @@
       top/cover no-repeat;
   }
 
-  .inside-header:has(.main-navigation li:hover > ul)::before {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .inside-header:has(.main-navigation li:hover > ul)
-    .main-navigation
-    ul
-    ul.sub-menu {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-
   .main-navigation:not(.mobile-menu-control-wrapper) .gp-icon.icon-search {
     display: flex !important;
   }
@@ -170,6 +148,6 @@
 @media (max-width: 1051px) {
   .inside-header.grid-container {
     padding-top: 11.09165px;
-  padding-bottom: 11.09165px;
+    padding-bottom: 11.09165px;
   }
 }
