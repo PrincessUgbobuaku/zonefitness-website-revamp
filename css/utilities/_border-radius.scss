@@ -1,0 +1,51 @@
+// ========================================
+//   Border Radius Utilities (SCSS source)
+//   Compiles to the same output as border-radius.css
+// ========================================
+
+$sizes: 0 5 10 15 20 25 30 35 40 45 50 55 60 65;
+
+// corner key => list of CSS properties it maps to
+$corners: (
+  "":   (border-radius),
+  "t":  (border-top-left-radius, border-top-right-radius),
+  "r":  (border-top-right-radius, border-bottom-right-radius),
+  "b":  (border-bottom-left-radius, border-bottom-right-radius),
+  "l":  (border-top-left-radius, border-bottom-left-radius),
+  "tl": (border-top-left-radius),
+  "tr": (border-top-right-radius),
+  "bl": (border-bottom-left-radius),
+  "br": (border-bottom-right-radius),
+);
+
+@mixin radius-utilities($infix: "") {
+  @each $corner, $props in $corners {
+    $base: if($corner == "", "radius", "radius-#{$corner}");
+    @each $size in $sizes {
+      .#{$base}#{$infix}-#{$size} {
+        @each $prop in $props {
+          #{$prop}: if($size == 0, 0, #{$size}px);
+        }
+      }
+    }
+  }
+  .radius#{$infix}-round  { border-radius: 9999px; }
+  .radius#{$infix}-circle { border-radius: 50%; }
+}
+
+// Base (no breakpoint)
+@include radius-utilities();
+
+// Responsive variants
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
+
+@each $infix, $minw in $breakpoints {
+  @media (min-width: $minw) {
+    @include radius-utilities("-#{$infix}");
+  }
+}

@@ -1,0 +1,62 @@
+// ========================================
+//   Margin & Padding Utilities (SCSS source)
+// ========================================
+
+$sizes: 0 5 10 15 20 25 30 35 40 45 50 55 60 65;
+
+$directions: (
+  "m":  (margin),
+  "mt": (margin-top),
+  "mr": (margin-right),
+  "mb": (margin-bottom),
+  "ml": (margin-left),
+  "p":  (padding),
+  "pt": (padding-top),
+  "pr": (padding-right),
+  "pb": (padding-bottom),
+  "pl": (padding-left),
+  "px": (padding-left, padding-right),
+  "py": (padding-top, padding-bottom),
+);
+
+@mixin spacing-utilities($infix: "") {
+  @each $key, $props in $directions {
+    @each $size in $sizes {
+      .#{$key}#{$infix}-#{$size} {
+        @each $prop in $props {
+          #{$prop}: if($size == 0, 0, #{$size}px);
+        }
+      }
+    }
+  }
+
+  .mx#{$infix}-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .my#{$infix}-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .ml#{$infix}-auto { margin-left: auto; }
+  .mr#{$infix}-auto { margin-right: auto; }
+}
+
+// Base (no breakpoint)
+@include spacing-utilities();
+
+// Responsive variants
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
+
+@each $infix, $minw in $breakpoints {
+  @media (min-width: $minw) {
+    @include spacing-utilities("-#{$infix}");
+  }
+}

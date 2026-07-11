@@ -1,0 +1,21 @@
+/* .hero.wp-block-cover {
+    top: -40px;
+} */
+
+/* Remove the default top padding on the homepage so the hero
+   sits flush against the top of the viewport */
+.home.one-container .site-content {
+  padding-top: 0;
+}
+
+.hero .wp-block-group .wp-block-group__inner-container {
+    padding: 0 !important;
+}
+
+.hero .wp-block-group .wp-block-group__inner-container h1 {
+    width: 65%;
+}
+
+.hero .wp-block-group .wp-block-group__inner-container p {
+    width: 60%;
+}
