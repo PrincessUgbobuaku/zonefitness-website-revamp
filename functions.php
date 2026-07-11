@@ -33,3 +33,16 @@ add_filter( 'generate_mobile_menu_media_query', function() {
 add_filter( 'generate_not_mobile_menu_media_query', function() {
     return '(min-width: 1051px)';
 } );
+
+// function zonefitness_enqueue_scripts() {
+
+//     wp_enqueue_script(
+//         'zonefitness-header',
+//         get_stylesheet_directory_uri() . '/js/header.js',
+//         array(),
+//         '1.0',
+//         true
+//     );
+
+// }
+// add_action('wp_enqueue_scripts', 'zonefitness_enqueue_scripts');

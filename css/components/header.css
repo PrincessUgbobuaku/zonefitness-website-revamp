@@ -1,3 +1,13 @@
+.site-header {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  top: 20px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
 .site-header .inside-header::before {
   content: "";
   position: absolute;
@@ -6,6 +16,9 @@
   backdrop-filter: blur(10px);
   border-radius: 50px;
   transition: border-radius 0.35s ease;
+  /* transition:
+    border-radius 0.4s ease,
+    transform 0.4s ease; */
   z-index: -1;
 }
 
@@ -14,14 +27,6 @@
 .inside-header:has(.main-navigation li:hover > ul)::before {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-}
-
-.site-header {
-  position: fixed !important;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  top: 20px;
 }
 
 #menu-main-menu li a {
@@ -54,14 +59,6 @@
 }
 
 @media (min-width: 769px) {
-  .main-navigation .main-nav ul li a {
-    padding: 10px 0;
-  }
-
-  .main-navigation .menu > li:first-child {
-    padding: 20px 0;
-  }
-
   .site-header .inside-header {
     padding: 0px 40px;
     position: relative;
@@ -70,18 +67,25 @@
   }
 
   .main-navigation .main-nav ul li a {
+    padding: 10px 0;
+  }
+
+  .main-navigation .menu > li:first-child {
+    padding: 20px 0;
+    position: unset !important;
+  }
+
+  .main-navigation .main-nav ul li a {
     line-height: unset !important;
+  }
+
+  .inside-navigation {
+    position: unset !important;
   }
 
   .menu-item.menu-item-type-taxonomy {
     grid-column: 1 / span 3;
   }
-
-  /* .main-navigation ul ul.sub-menu {
-    left: auto !important;
-    height: auto !important;
-    overflow: visible !important;
-  } */
 
   /*drop down menu*/
   .main-navigation ul ul.sub-menu {
@@ -89,9 +93,9 @@
     grid-template-columns: 1fr 1fr 1fr 500px;
     position: absolute;
     top: 100%;
-    left: 50%;
-    transform: translateX(-32.9%) translateY(-10px);
-    min-width: 1230px;
+    right: 0;
+    width: 100%;
+    /* transform: translateY(-10px); */
     padding: 0px 40px;
     background: rgba(54, 54, 54, 0.66);
     backdrop-filter: blur(10px);
@@ -111,7 +115,6 @@
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translateX(-32.9%) translateY(0); /* moved drop down from its orginal position*/
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     padding: 0px 40px 15px;
@@ -149,5 +152,10 @@
   .inside-header.grid-container {
     padding-top: 11.09165px;
     padding-bottom: 11.09165px;
+  }
+
+  .inside-header .inside-navigation .menu li {
+    display: flex;
+    justify-content: center;
   }
 }
