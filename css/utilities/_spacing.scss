@@ -18,6 +18,7 @@ $directions: (
   "px": (padding-left, padding-right),
   "py": (padding-top, padding-bottom),
 );
+
 //mixin is a reusable function
 @mixin spacing-utilities($infix: "") {
   @each $key, $props in $directions {

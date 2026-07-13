@@ -34,28 +34,11 @@ $min-widths: (
   600: 600px,
 );
 
-
-// Loop through each breakpoint in the $breakpoints map.
-// For each entry:
-//   $infix = the key (e.g. "sm", "md", "lg", "xl")
-//   $minw  = the value (e.g. 576px, 768px, 992px, 1200px)
-// Then generate responsive utility classes inside the corresponding media query.
-
 @each $infix, $minw in $breakpoints {
   @media (min-width: $minw) {
-
-        // Loop through each max width:
-    //   $key = class suffix (e.g. 1200)
-    //   $val = CSS value (e.g. 1200px)
-    // Generates classes like .sm-max-w-1200, .md-max-w-1400, etc.
-
     @each $key, $val in $max-widths {
       .#{$infix}-max-w-#{$key} { max-width: $val; }
     }
-
-     // Same idea for minimum widths.
-    // Generates classes like .sm-min-w-200, .lg-min-w-600, etc.
-    
     @each $key, $val in $min-widths {
       .#{$infix}-min-w-#{$key} { min-width: $val; }
     }
