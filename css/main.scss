@@ -4,12 +4,20 @@
 //   sass main.scss main.css
 // ========================================
 
+
+/*Pages*/
+@use 'pages/home';
+
+
+/*Components*/
+@use 'components/header';
+@use 'components/button';
+
+/*Utilities*/
 @use 'utilities/spacing';
 @use 'utilities/border-radius';
 @use 'utilities/sizing';
-@use 'components/header';
-@use 'components/button';
-@use 'pages/home';
+@use 'utilities/flex';
 
 // @import url('utilities/spacing.css');
 // @import url('utilities/flex.css');

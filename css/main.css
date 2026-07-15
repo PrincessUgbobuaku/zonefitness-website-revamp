@@ -1,3 +1,205 @@
+/*Pages*/
+/* .hero.wp-block-cover {
+    top: -40px;
+} */
+/* Remove the default top padding on the homepage so the hero
+   sits flush against the top of the viewport */
+.home.one-container .site-content {
+  padding-top: 0;
+}
+
+.hero .wp-block-group .wp-block-group__inner-container {
+  padding: 0 !important;
+}
+
+.hero .wp-block-group .wp-block-group__inner-container h1 {
+  width: 65%;
+}
+
+.hero .wp-block-group .wp-block-group__inner-container p {
+  width: 60%;
+}
+
+/*Components*/
+.site-header {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  top: 20px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.site-header .inside-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(54, 54, 54, 0.66);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  transition: border-radius 0.35s ease;
+  /* transition:
+    border-radius 0.4s ease,
+    transform 0.4s ease; */
+  z-index: -1;
+}
+
+/*if 'Zone Fitness Clubs' is hovered (thereby showing the sub-menu), then change inside-headers border-radii to 0px*/
+.inside-header:has(.main-navigation li:hover > ul)::before {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#menu-main-menu li a {
+  position: relative;
+  width: fit-content;
+}
+
+/*Adding underline to list items*/
+#menu-main-menu li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1fce6d;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/*hover state for underline*/
+#menu-main-menu li a:hover::after {
+  transform: scaleX(1);
+}
+
+.menu-item.menu-item-type-taxonomy a {
+  font-weight: 700;
+  font-size: 16px !important;
+}
+
+@media (min-width: 769px) {
+  .site-header .inside-header {
+    padding: 0px 40px;
+    position: relative;
+    background: transparent;
+    border-radius: 50px;
+  }
+  .main-navigation .main-nav ul li a {
+    padding: 10px 0;
+  }
+  .main-navigation .menu > li:first-child {
+    padding: 20px 0;
+    position: unset !important;
+  }
+  .main-navigation .main-nav ul li a {
+    line-height: unset !important;
+  }
+  .inside-navigation {
+    position: unset !important;
+  }
+  .menu-item.menu-item-type-taxonomy {
+    grid-column: 1/span 3;
+  }
+  /*drop down menu*/
+  .main-navigation ul ul.sub-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 500px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    /* transform: translateY(-10px); */
+    padding: 0px 40px;
+    background: rgba(54, 54, 54, 0.66);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease, border-radius 0.35s ease, visibility 0.35s ease;
+  }
+  /*when 'Zone Fitness Clubs' item is hovered, change sub-menu border-raii*/
+  .main-navigation li:hover > ul.sub-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 0px 40px 15px;
+  }
+  .main-navigation ul ul li {
+    display: flex;
+    align-items: center;
+  }
+  .menu-image a {
+    width: 100% !important;
+  }
+  .menu-image {
+    grid-column: 4;
+    grid-row: 1/11;
+  }
+  .menu-image a {
+    display: block;
+    height: 100%;
+    min-height: 500px;
+    color: transparent !important;
+    background: url("http://zonefitness.local/wp-content/uploads/2026/06/man-lifting-weights-removebg-preview.png") top/cover no-repeat;
+  }
+  .main-navigation:not(.mobile-menu-control-wrapper) .gp-icon.icon-search {
+    display: flex !important;
+  }
+}
+@media (max-width: 1051px) {
+  .inside-header.grid-container {
+    padding-top: 11.09165px;
+    padding-bottom: 11.09165px;
+  }
+  .inside-header .inside-navigation .menu li {
+    display: flex;
+    justify-content: center;
+  }
+}
+.wp-block-button__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 190px;
+  padding: 18px 40px;
+  background: #1fce6d;
+  color: #fff;
+  overflow: hidden;
+  transition: min-width 0.3s ease-in-out, padding 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Button expands */
+.wp-block-button__link:hover {
+  min-width: 230px; /* Increase width */
+  background-color: #18b85f;
+}
+
+/* Arrow */
+.wp-block-button__link::after {
+  content: "";
+  position: absolute;
+  right: 30px;
+  width: 24px;
+  height: 24px;
+  background: url("http://zonefitness.local/wp-content/uploads/2026/06/arrow-left-02.png") center/contain no-repeat;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.15s ease-in-out;
+}
+
+.wp-block-button__link:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/*Utilities*/
 .m-0 {
   margin: 0;
 }
@@ -5364,203 +5566,653 @@
     min-width: 600px;
   }
 }
-.site-header {
-  position: fixed !important;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  top: 20px;
-  margin-left: 16px;
-  margin-right: 16px;
+.d-flex {
+  display: flex;
 }
 
-.site-header .inside-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(54, 54, 54, 0.66);
-  backdrop-filter: blur(10px);
-  border-radius: 50px;
-  transition: border-radius 0.35s ease;
-  /* transition:
-    border-radius 0.4s ease,
-    transform 0.4s ease; */
-  z-index: -1;
+.d-inline-flex {
+  display: inline-flex;
 }
 
-/*if 'Zone Fitness Clubs' is hovered (thereby showing the sub-menu), then change inside-headers border-radii to 0px*/
-.inside-header:has(.main-navigation li:hover > ul)::before {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+.flex-row {
+  flex-direction: row;
 }
 
-#menu-main-menu li a {
-  position: relative;
-  width: fit-content;
+.flex-row-reverse {
+  flex-direction: row-reverse;
 }
 
-/*Adding underline to list items*/
-#menu-main-menu li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #1fce6d;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s ease;
+.flex-col {
+  flex-direction: column;
 }
 
-/*hover state for underline*/
-#menu-main-menu li a:hover::after {
-  transform: scaleX(1);
+.flex-col-reverse {
+  flex-direction: column-reverse;
 }
 
-.menu-item.menu-item-type-taxonomy a {
-  font-weight: 700;
-  font-size: 16px !important;
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
-@media (min-width: 769px) {
-  .site-header .inside-header {
-    padding: 0px 40px;
-    position: relative;
-    background: transparent;
-    border-radius: 50px;
-  }
-  .main-navigation .main-nav ul li a {
-    padding: 10px 0;
-  }
-  .main-navigation .menu > li:first-child {
-    padding: 20px 0;
-    position: unset !important;
-  }
-  .main-navigation .main-nav ul li a {
-    line-height: unset !important;
-  }
-  .inside-navigation {
-    position: unset !important;
-  }
-  .menu-item.menu-item-type-taxonomy {
-    grid-column: 1/span 3;
-  }
-  /*drop down menu*/
-  .main-navigation ul ul.sub-menu {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 500px;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 100%;
-    /* transform: translateY(-10px); */
-    padding: 0px 40px;
-    background: rgba(54, 54, 54, 0.66);
-    backdrop-filter: blur(10px);
-    border-radius: 50px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.35s ease, transform 0.35s ease, border-radius 0.35s ease, visibility 0.35s ease;
-  }
-  /*when 'Zone Fitness Clubs' item is hovered, change sub-menu border-raii*/
-  .main-navigation li:hover > ul.sub-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    padding: 0px 40px 15px;
-  }
-  .main-navigation ul ul li {
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-grow-0 {
+  flex-grow: 0;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-stretch {
+  align-self: stretch;
+}
+
+.self-baseline {
+  align-self: baseline;
+}
+
+.gap-0 {
+  gap: 0px !important;
+}
+
+.gap-5 {
+  gap: 5px !important;
+}
+
+.gap-10 {
+  gap: 10px !important;
+}
+
+.gap-15 {
+  gap: 15px !important;
+}
+
+.gap-20 {
+  gap: 20px !important;
+}
+
+.gap-25 {
+  gap: 25px !important;
+}
+
+.gap-30 {
+  gap: 30px !important;
+}
+
+.gap-35 {
+  gap: 35px !important;
+}
+
+.gap-40 {
+  gap: 40px !important;
+}
+
+.gap-45 {
+  gap: 45px !important;
+}
+
+.gap-50 {
+  gap: 50px !important;
+}
+
+@media (min-width: 576px) {
+  .d-sm-flex {
     display: flex;
-    align-items: center;
   }
-  .menu-image a {
-    width: 100% !important;
+  .d-sm-inline-flex {
+    display: inline-flex;
   }
-  .menu-image {
-    grid-column: 4;
-    grid-row: 1/11;
+  .flex-sm-row {
+    flex-direction: row;
   }
-  .menu-image a {
-    display: block;
-    height: 100%;
-    min-height: 500px;
-    color: transparent !important;
-    background: url("http://zonefitness.local/wp-content/uploads/2026/06/man-lifting-weights-removebg-preview.png") top/cover no-repeat;
+  .flex-sm-row-reverse {
+    flex-direction: row-reverse;
   }
-  .main-navigation:not(.mobile-menu-control-wrapper) .gp-icon.icon-search {
-    display: flex !important;
+  .flex-sm-col {
+    flex-direction: column;
   }
-}
-@media (max-width: 1051px) {
-  .inside-header.grid-container {
-    padding-top: 11.09165px;
-    padding-bottom: 11.09165px;
+  .flex-sm-col-reverse {
+    flex-direction: column-reverse;
   }
-  .inside-header .inside-navigation .menu li {
-    display: flex;
+  .flex-sm-wrap {
+    flex-wrap: wrap;
+  }
+  .flex-sm-nowrap {
+    flex-wrap: nowrap;
+  }
+  .flex-sm-grow {
+    flex-grow: 1;
+  }
+  .flex-sm-grow-0 {
+    flex-grow: 0;
+  }
+  .flex-sm-shrink {
+    flex-shrink: 1;
+  }
+  .flex-sm-shrink-0 {
+    flex-shrink: 0;
+  }
+  .flex-sm-1 {
+    flex: 1 1 0%;
+  }
+  .justify-sm-start {
+    justify-content: flex-start;
+  }
+  .justify-sm-end {
+    justify-content: flex-end;
+  }
+  .justify-sm-center {
     justify-content: center;
   }
+  .justify-sm-between {
+    justify-content: space-between;
+  }
+  .justify-sm-around {
+    justify-content: space-around;
+  }
+  .justify-sm-evenly {
+    justify-content: space-evenly;
+  }
+  .items-sm-start {
+    align-items: flex-start;
+  }
+  .items-sm-end {
+    align-items: flex-end;
+  }
+  .items-sm-center {
+    align-items: center;
+  }
+  .items-sm-stretch {
+    align-items: stretch;
+  }
+  .items-sm-baseline {
+    align-items: baseline;
+  }
+  .self-sm-start {
+    align-self: flex-start;
+  }
+  .self-sm-end {
+    align-self: flex-end;
+  }
+  .self-sm-center {
+    align-self: center;
+  }
+  .self-sm-stretch {
+    align-self: stretch;
+  }
+  .self-sm-baseline {
+    align-self: baseline;
+  }
+  .gap-sm-0 {
+    gap: 0px !important;
+  }
+  .gap-sm-5 {
+    gap: 5px !important;
+  }
+  .gap-sm-10 {
+    gap: 10px !important;
+  }
+  .gap-sm-15 {
+    gap: 15px !important;
+  }
+  .gap-sm-20 {
+    gap: 20px !important;
+  }
+  .gap-sm-25 {
+    gap: 25px !important;
+  }
+  .gap-sm-30 {
+    gap: 30px !important;
+  }
+  .gap-sm-35 {
+    gap: 35px !important;
+  }
+  .gap-sm-40 {
+    gap: 40px !important;
+  }
+  .gap-sm-45 {
+    gap: 45px !important;
+  }
+  .gap-sm-50 {
+    gap: 50px !important;
+  }
 }
-.wp-block-button__link {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 190px;
-  padding: 18px 40px;
-  background: #1fce6d;
-  color: #fff;
-  overflow: hidden;
-  transition: min-width 0.3s ease-in-out, padding 0.3s ease-in-out, background-color 0.3s ease-in-out;
+@media (min-width: 768px) {
+  .d-md-flex {
+    display: flex;
+  }
+  .d-md-inline-flex {
+    display: inline-flex;
+  }
+  .flex-md-row {
+    flex-direction: row;
+  }
+  .flex-md-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .flex-md-col {
+    flex-direction: column;
+  }
+  .flex-md-col-reverse {
+    flex-direction: column-reverse;
+  }
+  .flex-md-wrap {
+    flex-wrap: wrap;
+  }
+  .flex-md-nowrap {
+    flex-wrap: nowrap;
+  }
+  .flex-md-grow {
+    flex-grow: 1;
+  }
+  .flex-md-grow-0 {
+    flex-grow: 0;
+  }
+  .flex-md-shrink {
+    flex-shrink: 1;
+  }
+  .flex-md-shrink-0 {
+    flex-shrink: 0;
+  }
+  .flex-md-1 {
+    flex: 1 1 0%;
+  }
+  .justify-md-start {
+    justify-content: flex-start;
+  }
+  .justify-md-end {
+    justify-content: flex-end;
+  }
+  .justify-md-center {
+    justify-content: center;
+  }
+  .justify-md-between {
+    justify-content: space-between;
+  }
+  .justify-md-around {
+    justify-content: space-around;
+  }
+  .justify-md-evenly {
+    justify-content: space-evenly;
+  }
+  .items-md-start {
+    align-items: flex-start;
+  }
+  .items-md-end {
+    align-items: flex-end;
+  }
+  .items-md-center {
+    align-items: center;
+  }
+  .items-md-stretch {
+    align-items: stretch;
+  }
+  .items-md-baseline {
+    align-items: baseline;
+  }
+  .self-md-start {
+    align-self: flex-start;
+  }
+  .self-md-end {
+    align-self: flex-end;
+  }
+  .self-md-center {
+    align-self: center;
+  }
+  .self-md-stretch {
+    align-self: stretch;
+  }
+  .self-md-baseline {
+    align-self: baseline;
+  }
+  .gap-md-0 {
+    gap: 0px !important;
+  }
+  .gap-md-5 {
+    gap: 5px !important;
+  }
+  .gap-md-10 {
+    gap: 10px !important;
+  }
+  .gap-md-15 {
+    gap: 15px !important;
+  }
+  .gap-md-20 {
+    gap: 20px !important;
+  }
+  .gap-md-25 {
+    gap: 25px !important;
+  }
+  .gap-md-30 {
+    gap: 30px !important;
+  }
+  .gap-md-35 {
+    gap: 35px !important;
+  }
+  .gap-md-40 {
+    gap: 40px !important;
+  }
+  .gap-md-45 {
+    gap: 45px !important;
+  }
+  .gap-md-50 {
+    gap: 50px !important;
+  }
 }
-
-/* Button expands */
-.wp-block-button__link:hover {
-  min-width: 230px; /* Increase width */
-  background-color: #18b85f;
+@media (min-width: 992px) {
+  .d-lg-flex {
+    display: flex;
+  }
+  .d-lg-inline-flex {
+    display: inline-flex;
+  }
+  .flex-lg-row {
+    flex-direction: row;
+  }
+  .flex-lg-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .flex-lg-col {
+    flex-direction: column;
+  }
+  .flex-lg-col-reverse {
+    flex-direction: column-reverse;
+  }
+  .flex-lg-wrap {
+    flex-wrap: wrap;
+  }
+  .flex-lg-nowrap {
+    flex-wrap: nowrap;
+  }
+  .flex-lg-grow {
+    flex-grow: 1;
+  }
+  .flex-lg-grow-0 {
+    flex-grow: 0;
+  }
+  .flex-lg-shrink {
+    flex-shrink: 1;
+  }
+  .flex-lg-shrink-0 {
+    flex-shrink: 0;
+  }
+  .flex-lg-1 {
+    flex: 1 1 0%;
+  }
+  .justify-lg-start {
+    justify-content: flex-start;
+  }
+  .justify-lg-end {
+    justify-content: flex-end;
+  }
+  .justify-lg-center {
+    justify-content: center;
+  }
+  .justify-lg-between {
+    justify-content: space-between;
+  }
+  .justify-lg-around {
+    justify-content: space-around;
+  }
+  .justify-lg-evenly {
+    justify-content: space-evenly;
+  }
+  .items-lg-start {
+    align-items: flex-start;
+  }
+  .items-lg-end {
+    align-items: flex-end;
+  }
+  .items-lg-center {
+    align-items: center;
+  }
+  .items-lg-stretch {
+    align-items: stretch;
+  }
+  .items-lg-baseline {
+    align-items: baseline;
+  }
+  .self-lg-start {
+    align-self: flex-start;
+  }
+  .self-lg-end {
+    align-self: flex-end;
+  }
+  .self-lg-center {
+    align-self: center;
+  }
+  .self-lg-stretch {
+    align-self: stretch;
+  }
+  .self-lg-baseline {
+    align-self: baseline;
+  }
+  .gap-lg-0 {
+    gap: 0px !important;
+  }
+  .gap-lg-5 {
+    gap: 5px !important;
+  }
+  .gap-lg-10 {
+    gap: 10px !important;
+  }
+  .gap-lg-15 {
+    gap: 15px !important;
+  }
+  .gap-lg-20 {
+    gap: 20px !important;
+  }
+  .gap-lg-25 {
+    gap: 25px !important;
+  }
+  .gap-lg-30 {
+    gap: 30px !important;
+  }
+  .gap-lg-35 {
+    gap: 35px !important;
+  }
+  .gap-lg-40 {
+    gap: 40px !important;
+  }
+  .gap-lg-45 {
+    gap: 45px !important;
+  }
+  .gap-lg-50 {
+    gap: 50px !important;
+  }
 }
-
-/* Arrow */
-.wp-block-button__link::after {
-  content: "";
-  position: absolute;
-  right: 30px;
-  width: 24px;
-  height: 24px;
-  background: url("http://zonefitness.local/wp-content/uploads/2026/06/arrow-left-02.png") center/contain no-repeat;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.15s ease-in-out;
-}
-
-.wp-block-button__link:hover::after {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* .hero.wp-block-cover {
-    top: -40px;
-} */
-/* Remove the default top padding on the homepage so the hero
-   sits flush against the top of the viewport */
-.home.one-container .site-content {
-  padding-top: 0;
-}
-
-.hero .wp-block-group .wp-block-group__inner-container {
-  padding: 0 !important;
-}
-
-.hero .wp-block-group .wp-block-group__inner-container h1 {
-  width: 65%;
-}
-
-.hero .wp-block-group .wp-block-group__inner-container p {
-  width: 60%;
+@media (min-width: 1200px) {
+  .d-xl-flex {
+    display: flex;
+  }
+  .d-xl-inline-flex {
+    display: inline-flex;
+  }
+  .flex-xl-row {
+    flex-direction: row;
+  }
+  .flex-xl-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .flex-xl-col {
+    flex-direction: column;
+  }
+  .flex-xl-col-reverse {
+    flex-direction: column-reverse;
+  }
+  .flex-xl-wrap {
+    flex-wrap: wrap;
+  }
+  .flex-xl-nowrap {
+    flex-wrap: nowrap;
+  }
+  .flex-xl-grow {
+    flex-grow: 1;
+  }
+  .flex-xl-grow-0 {
+    flex-grow: 0;
+  }
+  .flex-xl-shrink {
+    flex-shrink: 1;
+  }
+  .flex-xl-shrink-0 {
+    flex-shrink: 0;
+  }
+  .flex-xl-1 {
+    flex: 1 1 0%;
+  }
+  .justify-xl-start {
+    justify-content: flex-start;
+  }
+  .justify-xl-end {
+    justify-content: flex-end;
+  }
+  .justify-xl-center {
+    justify-content: center;
+  }
+  .justify-xl-between {
+    justify-content: space-between;
+  }
+  .justify-xl-around {
+    justify-content: space-around;
+  }
+  .justify-xl-evenly {
+    justify-content: space-evenly;
+  }
+  .items-xl-start {
+    align-items: flex-start;
+  }
+  .items-xl-end {
+    align-items: flex-end;
+  }
+  .items-xl-center {
+    align-items: center;
+  }
+  .items-xl-stretch {
+    align-items: stretch;
+  }
+  .items-xl-baseline {
+    align-items: baseline;
+  }
+  .self-xl-start {
+    align-self: flex-start;
+  }
+  .self-xl-end {
+    align-self: flex-end;
+  }
+  .self-xl-center {
+    align-self: center;
+  }
+  .self-xl-stretch {
+    align-self: stretch;
+  }
+  .self-xl-baseline {
+    align-self: baseline;
+  }
+  .gap-xl-0 {
+    gap: 0px !important;
+  }
+  .gap-xl-5 {
+    gap: 5px !important;
+  }
+  .gap-xl-10 {
+    gap: 10px !important;
+  }
+  .gap-xl-15 {
+    gap: 15px !important;
+  }
+  .gap-xl-20 {
+    gap: 20px !important;
+  }
+  .gap-xl-25 {
+    gap: 25px !important;
+  }
+  .gap-xl-30 {
+    gap: 30px !important;
+  }
+  .gap-xl-35 {
+    gap: 35px !important;
+  }
+  .gap-xl-40 {
+    gap: 40px !important;
+  }
+  .gap-xl-45 {
+    gap: 45px !important;
+  }
+  .gap-xl-50 {
+    gap: 50px !important;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
