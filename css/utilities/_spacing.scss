@@ -43,6 +43,8 @@ $directions: (
 
   .ml#{$infix}-auto { margin-left: auto; }
   .mr#{$infix}-auto { margin-right: auto; }
+  .mt#{$infix}-auto { margin-top: auto; }
+  .mb#{$infix}-auto { margin-bottom: auto; }
 }
 
 // Base (no breakpoint)

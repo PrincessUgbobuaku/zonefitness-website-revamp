@@ -1,0 +1,20 @@
+.workout-class-cards {
+  .wp-block-column {
+    .wp-block-cover {
+      .wp-block-cover__inner-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .wp-block-group {
+            .wp-block-group__inner-container {
+                padding: 0;
+                h2 {
+                    min-height: 90px;
+                }
+
+            }
+        }
+      }
+    }
+  }
+}

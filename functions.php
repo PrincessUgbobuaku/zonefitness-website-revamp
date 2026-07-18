@@ -27,11 +27,11 @@ require get_stylesheet_directory() . '/inc/taxonomies/region.php';
  * Change mobile menu breakpoint to 1000px
  */
 add_filter( 'generate_mobile_menu_media_query', function() {
-    return '(max-width: 1050px)';
+    return '(max-width: 1072px)';
 } );
 
 add_filter( 'generate_not_mobile_menu_media_query', function() {
-    return '(min-width: 1051px)';
+    return '(min-width: 1073px)';
 } );
 
 // function zonefitness_enqueue_scripts() {
