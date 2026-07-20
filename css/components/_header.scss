@@ -1,0 +1,211 @@
+/* ========================================
+   Header
+   Nesting follows the HTML structure:
+   .site-header > .inside-header > (.site-logo, .main-navigation x2)
+   .main-navigation#site-navigation > .inside-navigation > .main-nav > #menu-main-menu > li > a / .sub-menu
+======================================== */
+
+.site-header {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+
+  @media (max-width: 768px) {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  @media (max-width: 1051px) {
+    .inside-header.grid-container {
+      padding-top: 11.09165px;
+      padding-bottom: 11.09165px;
+    }
+  }
+
+  .inside-header {
+    /* Frosted-glass background panel */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(54, 54, 54, 0.66);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      transition: border-radius 0.35s ease;
+      z-index: -1;
+    }
+
+    /* Square off the bottom corners while a sub-menu is open */
+    &:has(.main-navigation li:hover > ul)::before {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .main-navigation {
+      .inside-navigation {
+        .main-nav {
+          #menu-main-menu {
+            li {
+              display: flex;
+              justify-content: center;
+            }
+
+            /* Every top-level link */
+            li a {
+              position: relative;
+              width: fit-content;
+
+              &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                background-color: #1fce6d;
+                transform: scaleX(0);
+                transform-origin: center;
+                transition: transform 0.3s ease;
+              }
+
+              &:hover::after {
+                transform: scaleX(1);
+              }
+            }
+
+            .menu-item.menu-item-type-taxonomy a {
+              font-weight: 700;
+              font-size: 16px !important;
+            }
+
+            .menu-item-has-children > a {
+              margin-inline: auto;
+            }
+
+            #menu-item-61 {
+              flex-direction: column;
+            }
+
+            .sub-menu {
+              background-color: unset !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* ----------------------------------------
+     Desktop layout — everything below only
+     applies from 1073px and up. Nesting still
+     mirrors the HTML; the media query just
+     wraps the whole tree once.
+  ---------------------------------------- */
+  @media (min-width: 1073px) {
+    .inside-header {
+      padding: 0px 40px;
+      position: relative;
+      background: transparent;
+      border-radius: 50px;
+      max-width: 1150px;
+
+      .main-navigation {
+        /* Search icon: only shown on the real nav, not the mobile-toggle nav */
+        &:not(.mobile-menu-control-wrapper) .gp-icon.icon-search {
+          display: flex !important;
+        }
+
+        .inside-navigation {
+          position: unset !important;
+
+          .main-nav {
+            #menu-main-menu {
+                          // gap: 30px;
+
+              > li {
+                padding: 20px 0;
+
+                a {
+                  // padding: 10px 0;
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                  line-height: unset !important;
+                }
+              }
+
+              /* First top-level item: "Zone Fitness Clubs" */
+              > li:first-child {
+                // padding: 20px 0;
+                position: unset !important;
+              }
+
+              /* "Western Cape" / "Pretoria" / "Johannesburg" region links */
+              .menu-item.menu-item-type-taxonomy {
+                grid-column: 1 / span 3;
+              }
+
+              /* Dropdown mega-menu panel */
+              .sub-menu {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 500px;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                padding: 0px 40px;
+                background-color: rgba(54, 54, 54, 0.66) !important;
+                backdrop-filter: blur(10px);
+                border-radius: 50px;
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition:
+                  opacity 0.35s ease,
+                  transform 0.35s ease,
+                  border-radius 0.35s ease,
+                  visibility 0.35s ease;
+
+                /* Every <li> inside the dropdown */
+                li {
+                  display: flex !important;
+                  align-items: center !important;
+                  justify-content: left !important;
+                }
+
+                /* Featured image tile */
+                .menu-image {
+                  grid-column: 4;
+                  grid-row: 1 / 11;
+
+                  a {
+                    width: 100% !important;
+                    display: block;
+                    height: 100%;
+                    min-height: 500px;
+                    color: transparent !important;
+                    background: url("http://zonefitness.local/wp-content/uploads/2026/06/man-lifting-weights-removebg-preview.png")
+                      top/cover no-repeat;
+                  }
+                }
+              }
+
+              /* Dropdown open state, triggered by hovering the parent <li> */
+              li:hover > .sub-menu {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                padding: 0px 40px 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+/* ========================================
+   Grid Utilities
+======================================== */
+
+.d-grid { display: grid !important; }
+
+$columns: 1 2 3 4 5 6 7 8 9 10 11 12;
+$gaps: 0 5 10 15 20 25 30 35 40 45 50;
+
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
+
+@mixin grid-utilities($infix: "") {
+  /* Column count: .grid-cols-3 -> grid-template-columns: repeat(3, 1fr) */
+  @each $n in $columns {
+    .grid-cols#{$infix}-#{$n} {
+      grid-template-columns: repeat(#{$n}, 1fr);
+    }
+  }
+
+  /* Column span: .col-span-3 -> grid-column: span 3 */
+  @each $n in $columns {
+    .col-span#{$infix}-#{$n} {
+      grid-column: span #{$n};
+    }
+  }
+
+  /* Gap (both axes) */
+  @each $s in $gaps {
+    .gap#{$infix}-#{$s} { gap: #{$s}px; }
+  }
+
+  /* Row gap only */
+  @each $s in $gaps {
+    .row-gap#{$infix}-#{$s} { row-gap: #{$s}px; }
+  }
+
+  /* Column gap only */
+  @each $s in $gaps {
+    .col-gap#{$infix}-#{$s} { column-gap: #{$s}px; }
+  }
+}
+
+/* Base (no breakpoint) */
+@include grid-utilities();
+
+/* Responsive variants */
+@each $infix, $minw in $breakpoints {
+  @media (min-width: $minw) {
+    @include grid-utilities("-#{$infix}");
+  }
+}
