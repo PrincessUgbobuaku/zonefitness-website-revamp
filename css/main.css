@@ -9,20 +9,55 @@
   padding-top: 0;
 }
 
+.hero .wp-block-group__inner-container {
+  padding: 0 40px !important;
+}
+
+.hero .wp-block-columns .wp-block-column .wp-block-image img {
+  object-fit: cover;
+  height: 100%;
+}
+
 .hero .wp-block-group .wp-block-group__inner-container {
   /* @media (max-width: 1172px) {
   padding: 0 !important;
       } */
 }
 
-.hero .wp-block-group .wp-block-group__inner-container h1 {
-  width: 65%;
+.hero {
+  min-height: 630px;
+}
+
+.hero .wp-block-cover__inner-container {
+  min-height: 630px;
+}
+
+.hero .wp-block-group__inner-container {
+  min-height: 630px;
+}
+
+.hero .wp-block-group__inner-container .wp-block-columns {
+  min-height: 630px;
+}
+
+/* .hero > .wp-block-cover__inner-container,
+.hero .wp-block-group,
+.hero .wp-block-group__inner-container,
+.hero .wp-block-columns {
+    display: flex;
+    flex: 1;
+}
+
+.hero .wp-block-columns {
+    width: 100%;
+} */
+/* .hero .wp-block-group .wp-block-group__inner-container h1 {
+    width: 65%;
 }
 
 .hero .wp-block-group .wp-block-group__inner-container p {
-  width: 60%;
-}
-
+    width: 60%;
+} */
 /*all pages*/
 /* .one-container .site-content {
   padding: 16px !important;
@@ -5540,6 +5575,9 @@
     border-radius: 50%;
   }
 }
+/* ========================================
+   Sizing Utilities
+======================================== */
 .w-100 {
   width: 100%;
 }
@@ -5549,7 +5587,7 @@
 }
 
 .h-100 {
-  height: 100%;
+  height: 100% !important;
 }
 
 .vh-100 {
@@ -5580,6 +5618,38 @@
   min-width: 600px;
 }
 
+.min-h-200 {
+  min-height: 200px;
+}
+
+.min-h-300 {
+  min-height: 300px;
+}
+
+.min-h-400 {
+  min-height: 400px;
+}
+
+.min-h-430 {
+  min-height: 430px;
+}
+
+.min-h-500 {
+  min-height: 500px;
+}
+
+.min-h-600 {
+  min-height: 600px;
+}
+
+.max-h-400 {
+  max-height: 400px;
+}
+
+.max-h-600 {
+  max-height: 600px;
+}
+
 @media (min-width: 576px) {
   .sm-max-w-1200 {
     max-width: 1200px;
@@ -5598,6 +5668,33 @@
   }
   .sm-min-w-600 {
     min-width: 600px;
+  }
+  .sm-min-h-200 {
+    min-height: 200px;
+  }
+  .sm-min-h-300 {
+    min-height: 300px;
+  }
+  .sm-min-h-400 {
+    min-height: 400px;
+  }
+  .sm-min-h-430 {
+    min-height: 430px;
+  }
+  .sm-min-h-550 {
+    min-height: 550px;
+  }
+  .sm-min-h-500 {
+    min-height: 500px;
+  }
+  .sm-min-h-600 {
+    min-height: 600px;
+  }
+  .sm-max-h-400 {
+    max-height: 400px;
+  }
+  .sm-max-h-600 {
+    max-height: 600px;
   }
 }
 @media (min-width: 768px) {
@@ -5619,6 +5716,33 @@
   .md-min-w-600 {
     min-width: 600px;
   }
+  .md-min-h-200 {
+    min-height: 200px;
+  }
+  .md-min-h-300 {
+    min-height: 300px;
+  }
+  .md-min-h-400 {
+    min-height: 400px;
+  }
+  .md-min-h-430 {
+    min-height: 430px;
+  }
+  .md-min-h-550 {
+    min-height: 550px;
+  }
+  .md-min-h-500 {
+    min-height: 500px;
+  }
+  .md-min-h-600 {
+    min-height: 600px;
+  }
+  .md-max-h-400 {
+    max-height: 400px;
+  }
+  .md-max-h-600 {
+    max-height: 600px;
+  }
 }
 @media (min-width: 992px) {
   .lg-max-w-1200 {
@@ -5639,6 +5763,33 @@
   .lg-min-w-600 {
     min-width: 600px;
   }
+  .lg-min-h-200 {
+    min-height: 200px;
+  }
+  .lg-min-h-300 {
+    min-height: 300px;
+  }
+  .lg-min-h-400 {
+    min-height: 400px;
+  }
+  .lg-min-h-430 {
+    min-height: 430px;
+  }
+  .lg-min-h-550 {
+    min-height: 550px;
+  }
+  .lg-min-h-500 {
+    min-height: 500px;
+  }
+  .lg-min-h-600 {
+    min-height: 600px;
+  }
+  .lg-max-h-400 {
+    max-height: 400px;
+  }
+  .lg-max-h-600 {
+    max-height: 600px;
+  }
 }
 @media (min-width: 1200px) {
   .xl-max-w-1200 {
@@ -5658,6 +5809,33 @@
   }
   .xl-min-w-600 {
     min-width: 600px;
+  }
+  .xl-min-h-200 {
+    min-height: 200px;
+  }
+  .xl-min-h-300 {
+    min-height: 300px;
+  }
+  .xl-min-h-400 {
+    min-height: 400px;
+  }
+  .xl-min-h-430 {
+    min-height: 430px;
+  }
+  .xl-min-h-550 {
+    min-height: 550px;
+  }
+  .xl-min-h-500 {
+    min-height: 500px;
+  }
+  .xl-min-h-600 {
+    min-height: 600px;
+  }
+  .xl-max-h-400 {
+    max-height: 400px;
+  }
+  .xl-max-h-600 {
+    max-height: 600px;
   }
 }
 .d-flex {
