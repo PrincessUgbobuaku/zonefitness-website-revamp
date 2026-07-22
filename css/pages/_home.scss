@@ -1,0 +1,45 @@
+/* Remove the default top padding on the homepage so the hero
+   sits flush against the top of the viewport */
+.home.one-container .site-content {
+  padding-top: 0;
+}
+
+.hero .wp-block-group__inner-container {
+  padding: 0 40px !important;
+}
+
+.hero .wp-block-columns .wp-block-column .wp-block-image img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.hero {
+  min-height: 500px;
+}
+
+.hero .wp-block-cover__inner-container {
+  min-height: 500px;
+}
+
+.hero .wp-block-group__inner-container {
+  min-height: 500px;
+}
+
+.hero .wp-block-group__inner-container .wp-block-columns {
+  min-height: 500px;
+}
+
+.page-id-50 #page::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 140px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.page-id-50 .site-header {
+  margin-bottom: 20px;
+}
