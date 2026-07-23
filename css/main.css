@@ -68,7 +68,7 @@
     margin-right: 30px;
   }
 }
-@media (max-width: 1051px) {
+@media (max-width: 1151px) {
   .site-header .inside-header.grid-container {
     padding-top: 11.09165px;
     padding-bottom: 11.09165px;
@@ -136,12 +136,10 @@
 .site-header {
   /* ----------------------------------------
      Desktop layout — everything below only
-     applies from 1073px and up. Nesting still
-     mirrors the HTML; the media query just
-     wraps the whole tree once.
+     applies from 1151px and up.
   ---------------------------------------- */
 }
-@media (min-width: 1073px) {
+@media (min-width: 1151px) {
   .site-header .inside-header {
     padding: 0px 40px;
     position: relative;

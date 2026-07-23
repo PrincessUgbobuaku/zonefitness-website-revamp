@@ -18,31 +18,17 @@ function zonefitness_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'zonefitness_enqueue_styles');
 
-//“Go load the file that registers my Club CPT.”
+/* “Go load the file that registers my Club CPT" */
 
 require get_stylesheet_directory() . '/inc/post-types/club.php'; 
 require get_stylesheet_directory() . '/inc/taxonomies/region.php';
 
-/**
- * Change mobile menu breakpoint to 1000px
- */
+/* Change mobile menu breakpoint to 1000px */
+
 add_filter( 'generate_mobile_menu_media_query', function() {
-    return '(max-width: 1072px)';
+    return '(max-width: 1151px)';
 } );
 
 add_filter( 'generate_not_mobile_menu_media_query', function() {
-    return '(min-width: 1073px)';
+    return '(min-width: 1152px)';
 } );
-
-// function zonefitness_enqueue_scripts() {
-
-//     wp_enqueue_script(
-//         'zonefitness-header',
-//         get_stylesheet_directory_uri() . '/js/header.js',
-//         array(),
-//         '1.0',
-//         true
-//     );
-
-// }
-// add_action('wp_enqueue_scripts', 'zonefitness_enqueue_scripts');
