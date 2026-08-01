@@ -33,7 +33,7 @@
   content: "";
   display: block;
   width: 100%;
-  height: 140px;
+  height: 150px;
   background-color: black;
   position: absolute;
   top: 0;
@@ -42,4 +42,27 @@
 
 .page-id-50 .site-header {
   margin-bottom: 20px;
+}
+
+//reduce column widths at this screen width
+@media (max-width: 870px) {
+  .hero .wp-block-columns {
+    gap: 0 !important;
+  }
+  .hero .wp-block-columns .wp-block-column:first-child {
+    flex-basis: 55% !important;
+  }
+}
+
+//center text and button on tablet/mobile
+//don't have custom classes for text on screen sizes so had to code it here
+@media (max-width: 781px) {
+  .hero h1,
+  p {
+    text-align: center !important;
+  }
+
+  .hero .wp-block-buttons {
+    justify-content: center;
+  }
 }
