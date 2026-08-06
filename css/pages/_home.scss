@@ -66,3 +66,28 @@
     justify-content: center;
   }
 }
+
+// line animations
+
+.animated-line {
+  width: 160px;
+  position: relative;
+  left: 420px;
+}
+
+.animated-line svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.animated-line path {
+  stroke: #27d86c;
+  stroke-width: 6;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.entry-content > h2.wp-block-heading {
+  margin-bottom: 10px !important;
+}

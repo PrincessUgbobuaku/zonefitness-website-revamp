@@ -18,6 +18,38 @@ function zonefitness_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'zonefitness_enqueue_styles');
 
+function zonefitness_enqueue_scripts() {
+
+    // GSAP
+    wp_enqueue_script(
+        'gsap',
+        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js',
+        array(),
+        null,
+        true
+    );
+
+    // ScrollTrigger
+    wp_enqueue_script(
+        'gsap-scrolltrigger',
+        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js',
+        array('gsap'),
+        null,
+        true
+    );
+
+    // Your animation file
+    wp_enqueue_script(
+        'zonefitness-animations',
+        get_stylesheet_directory_uri() . '/js/animations.js',
+        array('gsap', 'gsap-scrolltrigger'),
+        '1.0',
+        true
+    );
+
+}
+add_action('wp_enqueue_scripts', 'zonefitness_enqueue_scripts');
+
 /* “Go load the file that registers my Club CPT" */
 
 require get_stylesheet_directory() . '/inc/post-types/club.php'; 
