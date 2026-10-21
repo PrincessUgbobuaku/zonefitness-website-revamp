@@ -2,8 +2,10 @@
 //   Margin & Padding Utilities (SCSS source)
 // ========================================
 
+//scss variable
 $sizes: 0 5 10 15 20 25 30 35 40 45 50 55 60 65;
 
+//scss variable - map 
 $directions: (
   "m":  (margin),
   "mt": (margin-top),
@@ -19,7 +21,7 @@ $directions: (
   "py": (padding-top, padding-bottom),
 );
 
-//mixin is a reusable function
+//a mixin is a reusable block of SCSS code.
 @mixin spacing-utilities($infix: "") {
   @each $key, $props in $directions {
     @each $size in $sizes {
